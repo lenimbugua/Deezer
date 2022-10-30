@@ -14,7 +14,9 @@ export const useSearchStore = defineStore("search", {
           params
         );
         console.log(response);
-      } catch (error) {}
+      } catch (error) {
+        console.log(`There was an error calling the api ${error}`);
+      }
     },
   },
 });
