@@ -1,9 +1,9 @@
 <script setup>
-import { useArtistStore } from "@/stores/search";
+import { useArtistStore } from "@/stores/artist";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
-const searchStore = useArtistStore();
-const { artist } = storeToRefs(searchStore);
+const artistStore = useArtistStore();
+const { artist } = storeToRefs(artistStore);
 </script>
 <template>
   <a

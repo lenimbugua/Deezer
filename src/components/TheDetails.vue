@@ -1,5 +1,6 @@
 <script setup>
 import MusicSVG from "./MusicSVG.vue";
+import TrackList from "./TrackList.vue";
 </script>
 <template>
   <main
@@ -12,7 +13,7 @@ import MusicSVG from "./MusicSVG.vue";
           <div class="lg:max-w-4xl">
             <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
               <h1 class="text-2xl font-bold leading-7 text-slate-900">
-                Episodes
+                Deezer
               </h1>
             </div>
           </div>
@@ -23,7 +24,7 @@ import MusicSVG from "./MusicSVG.vue";
           <article aria-labelledby="episode-5-title" class="py-10 sm:py-12">
             <div class="lg:px-8">
               <div class="lg:max-w-4xl">
-                <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
+                <div class="mx-auto px-4 md:max-w-7xl lg:px-0">
                   <div class="flex flex-col items-start">
                     <h2
                       id="episode-5-title"
@@ -36,7 +37,9 @@ import MusicSVG from "./MusicSVG.vue";
                       class="order-first font-mono text-sm leading-7 text-slate-500"
                       >February 24, 2022</time
                     >
-                    <!--Put table here-->
+                    <!-- =* * * * * * * * * *  Start Of the tracklist table * * * * * * * * * * *= -->
+                    <TrackList />
+                    <!-- =* * * * * * * * * *  End Of the tracklist table * * * * * * * * * * *= -->
                     <div class="mt-4 flex items-center gap-4">
                       <button
                         type="button"

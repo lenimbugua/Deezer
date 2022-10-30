@@ -7,7 +7,7 @@ import {
   test,
   expect,
 } from "vitest";
-import { useArtistStore } from "./search";
+import { useArtistStore } from "./artist";
 
 beforeAll(() => {
   setActivePinia(createPinia());
