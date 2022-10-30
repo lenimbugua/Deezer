@@ -1,8 +1,8 @@
 <script setup>
-import { useArtistStore } from "@/stores/search";
+import { useArtistStore } from "@/stores/artist";
 import { ref } from "vue";
-const searchStore = useArtistStore();
-const { search } = searchStore;
+const artistStore = useArtistStore();
+const { search } = artistStore;
 
 const query = ref("");
 </script>
