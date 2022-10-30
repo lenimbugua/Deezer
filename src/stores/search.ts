@@ -1,17 +1,17 @@
 import { defineStore } from "pinia";
+import axios from "axios";
 
-// search store will perform artist searc and subsequently update
+// search store will perform artist search and subsequently update
 // search state
 export const useSearchStore = defineStore("search", {
-  state: () => ({ artist: 0 }),
+  state: () => ({ artist: null }),
   getters: {},
   actions: {
     async search() {
       this.count++;
       try {
         const response = await axios.get(
-          `https://api.deezer.com/search?q=eminem`,
-          params
+          `https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=eminem`
         );
         console.log(response);
       } catch (error) {
