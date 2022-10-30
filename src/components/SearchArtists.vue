@@ -9,11 +9,10 @@ const query = ref("");
 
 <template>
   <!-- =* * * * * * * * * * * Start Of Search Artists Input * * * * * * * * * * *= -->
-  <h1>Search Artist</h1>
   <input
     class="w-full p-3 ring-inset block border-2 border-gray-300"
     type="search"
-    id="site-search"
+    placeholder="Type artisist name and hit enter...."
     required
     v-model="query"
     @keydown.enter="search(query)"
