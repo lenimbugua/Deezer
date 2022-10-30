@@ -30,7 +30,7 @@ import TrackList from "./TrackList.vue";
                       id="episode-5-title"
                       class="mt-2 text-lg font-bold text-slate-900"
                     >
-                      <a href="/5">Track List</a>
+                      <a href="/5">Top 5 Tracks</a>
                     </h2>
                     <time
                       datetime="2022-02-24T00:00:00.000Z"
