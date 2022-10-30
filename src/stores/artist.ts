@@ -12,6 +12,16 @@ export interface Artist {
   tracklist: string;
 }
 
+export interface Album {
+    cover: string;
+    id: string;
+  }
+
+export interface TopTracks {
+    title: string;
+    duration: string;
+    album: Album;
+  }
 export interface ArtistState {
   artist: Artist | null;
 }

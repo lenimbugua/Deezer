@@ -1,10 +1,12 @@
 <script setup>
 import { useArtistStore } from "@/stores/artist";
+import { useTopTracksStore } from "@/stores/top-tracks";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
 const artistStore = useArtistStore();
 const { artist } = storeToRefs(artistStore);
-const { fetchTop5Tracks } = artistStore;
+const topTracksStore = useTopTracksStore();
+const { fetchTop5Tracks } = topTracksStore;
 </script>
 <template>
   <section @click="fetchTop5Tracks(artist.id)" class="cursor-pointer">
