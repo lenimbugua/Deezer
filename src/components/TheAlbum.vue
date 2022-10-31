@@ -1,9 +1,9 @@
 <script setup>
 const props = defineProps({
-  cover: String,
+  cover: { type: String, required: true },
   id: Number,
 });
-console.log(props);
+console.log(props.id);
 </script>
 <template>
   <div

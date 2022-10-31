@@ -14,7 +14,8 @@
     "install": "^0.13.0",
     "npm": "^8.19.2",
     "pinia": "^2.0.23",
-    "vue": "^3.2.41"
+    "vue": "^3.2.41",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.2.0",

@@ -10,7 +10,7 @@ const query = ref("");
 <template>
   <!-- =* * * * * * * * * * * Start Of Search Artists Input * * * * * * * * * * *= -->
   <input
-    class="w-full p-3 ring-inset block border-2 border-gray-300"
+    class="block p-3 rounded-lg ring-2 my-3 ring-violet-200 focus:outline-violet-400 focus:ring-violet-200 border-2 border-gray-300"
     type="search"
     placeholder="Type artisist name and hit enter...."
     required

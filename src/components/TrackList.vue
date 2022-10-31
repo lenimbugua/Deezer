@@ -8,7 +8,7 @@ const { toptracks } = storeToRefs(topTracksStore);
 <template>
   <div
     v-if="toptracks != null"
-    class="bg-white rounded-md w-full mx-4 max-w-2xl"
+    class="bg-white rounded-md w-5/6 mx-4 "
   >
     <div>
       <div class="-mx-4 sm:-mx-8 py-4 overflow-x-auto">

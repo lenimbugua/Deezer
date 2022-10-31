@@ -7,6 +7,7 @@ const baseURL = `${corsURL}https://api.deezer.com/`;
 export interface Album {
   cover: string;
   id: string;
+  title: string;
 }
 
 export interface TopTracks {
@@ -28,6 +29,7 @@ const actions = {
     try {
       const response = await axios.get(url);
       const tracks = response.data.data;
+      console.log(tracks);
       //reset first before updating
       this.toptracks = [];
       for (let track of response.data.data) {
@@ -35,6 +37,7 @@ const actions = {
         const album = {
           cover: track.album.cover_medium,
           id: track.album.id,
+          title: track.album.title,
         };
         this.toptracks.push({
           title,

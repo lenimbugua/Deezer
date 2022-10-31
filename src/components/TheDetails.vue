@@ -1,4 +1,5 @@
 <script setup>
+import SearchArtists from "@/components/SearchArtists.vue";
 import MusicSVG from "./MusicSVG.vue";
 import TrackList from "./TrackList.vue";
 </script>
@@ -9,15 +10,8 @@ import TrackList from "./TrackList.vue";
     <MusicSVG />
     <div class="relative">
       <div class="sm:pt-16 lg:pt-12">
-        <div class="hidden md:block lg:px-8">
-          <div class="lg:max-w-4xl">
-            <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
-              <h1 class="text-2xl font-bold leading-7 text-slate-900">
-                Deezer
-              </h1>
-            </div>
-          </div>
-        </div>
+        <SearchArtists class="hidden sm:block w-5/6 ml-4" />
+
         <div
           class="divide-y divide-slate-100 sm:mt-4 lg:mt-8 lg:border-t lg:border-slate-100"
         >
@@ -54,9 +48,9 @@ import TrackList from "./TrackList.vue";
                         </svg>
                         <div class="">
                           <div class="lg:max-w-4xl">
-                            <div class="mx-auto px-3 ">
+                            <div class="mx-auto px-3">
                               <h1
-                                class="text-2xl  font-bold leading-5 text-slate-900"
+                                class="text-2xl font-bold leading-5 text-slate-900"
                               >
                                 Albums
                               </h1>
