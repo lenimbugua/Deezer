@@ -2,18 +2,30 @@
 
 Deezer is an internet-based music streaming service
 
-**Install dependancies**
+## Live Demo
 
+**Form:** https://vue-custom-form.herokuapp.com/
+
+## Project setup
+
+```bash
 npm install
+```
 
-**To run in development**
+### Compiles and hot-reloads for development
 
+```
 npm run dev
+```
 
-**To run unit tests**
+### Compiles and minifies for production
 
-npm run test
-
-**To build for deployment**
-
+```
 npm run build
+```
+
+### Run your tests
+
+```
+npm run test
+```
