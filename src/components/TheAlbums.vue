@@ -1,12 +1,17 @@
 <script setup>
-import ReleaseDate from "./ReleaseDate.vue"
+import TheSpin from "@/components/TheSpin.vue";
+import ReleaseDate from "./ReleaseDate.vue";
 import { useTopTracksStore } from "@/stores/top-tracks";
 import { storeToRefs } from "pinia";
 const topTracksStore = useTopTracksStore();
-const { toptracks } = storeToRefs(topTracksStore);
+const { toptracks, loading } = storeToRefs(topTracksStore);
 </script>
 <template>
-  <section class="border-t border-slate-200 bg-slate-100 py-5 pb-40 sm:pb-32">
+  <TheSpin v-if="loading" />
+  <section
+    v-else
+    class="border-t border-slate-200 bg-slate-100 py-5 pb-40 sm:pb-32"
+  >
     <div class="mx-auto">
       <section class="lg:ml-120 grid grid-cols-3 sm:grid-cols-5 gap-3 px-4">
         <div
@@ -27,8 +32,10 @@ const { toptracks } = storeToRefs(topTracksStore);
             />
           </div>
 
-          <div>{{ track.album.title }}</div>
-          <ReleaseDate :id="track.album.id"/>
+          <div class="mt-3 font-semibold text-slate-700">
+            {{ track.album.title }}
+          </div>
+          <ReleaseDate v-if="toptracks" :id="track.album.id" />
         </div>
       </section>
     </div>

@@ -2,9 +2,18 @@
 import SearchArtists from "@/components/SearchArtists.vue";
 import MusicSVG from "./MusicSVG.vue";
 import TrackList from "./TrackList.vue";
+import TheSpin from "./TheSpin.vue";
+
+import { useTopTracksStore } from "@/stores/top-tracks";
+import { storeToRefs } from "pinia";
+const topTracksStore = useTopTracksStore();
+const { toptracks, loading } = storeToRefs(topTracksStore);
 </script>
 <template>
+  <!-- =* * * * * * * * * *  The details * * * * * * * * * * *= -->
+  <TheSpin v-if="loading" />
   <main
+    v-else
     class="border-t border-slate-200 lg:relative lg:ml-112 lg:border-t-0 xl:ml-120"
   >
     <MusicSVG />
@@ -20,15 +29,10 @@ import TrackList from "./TrackList.vue";
               <div class="lg:max-w-4xl">
                 <div class="mx-auto px-4 md:max-w-7xl lg:px-0">
                   <div class="flex flex-col items-start">
-                    <time
-                      datetime="2022-02-24T00:00:00.000Z"
-                      class="order-first font-mono text-sm leading-7 text-slate-500"
-                      >February 24, 2022</time
-                    >
                     <!-- =* * * * * * * * * *  Start Of the tracklist table * * * * * * * * * * *= -->
                     <TrackList />
                     <!-- =* * * * * * * * * *  End Of the tracklist table * * * * * * * * * * *= -->
-                    <div class="mt-4 flex items-center">
+                    <div class="mt-4 flex items-center" v-if="toptracks.length">
                       <h2
                         class="flex pb-3 items-center font-mono text-sm font-medium leading-7 text-slate-900"
                       >
@@ -68,4 +72,5 @@ import TrackList from "./TrackList.vue";
       </div>
     </div>
   </main>
+  <!-- =* * * * * * * * * *  The details End * * * * * * * * * * *= -->
 </template>
