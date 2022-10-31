@@ -8,7 +8,7 @@ export interface Album {
   cover: string;
   id: string;
   title: string;
-  releaseDate: Date;
+  releaseDate: String;
 }
 
 export interface AlbumState {
@@ -26,7 +26,7 @@ const actions = {
       const response = await axios.get(url);
       console.log(response);
       const { cover, id, title } = response.data;
-      const { releaseDate } = response.data.release_date;
+      const releaseDate = response.data.release_date;
       //reset first before updating
       this.album = null;
       this.album = { cover, id, title, releaseDate };

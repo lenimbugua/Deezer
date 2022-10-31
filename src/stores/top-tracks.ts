@@ -18,11 +18,15 @@ export interface TopTracks {
 export interface TopTracksState {
   toptracks: TopTracks[] | null;
   loading: Boolean;
+  error: Boolean;
+  errorMessage: string;
 }
 
 const state = (): TopTracksState => ({
   toptracks: [],
   loading: false,
+  error: false,
+  errorMessage: "",
 });
 
 const actions = {
@@ -53,8 +57,9 @@ const actions = {
 
       console.log(this.toptracks);
     } catch (error) {
-      console.log(`There was an error calling the api ${error}`);
       this.loading = false;
+      this.error = true;
+      this.errorMessage = `An Error occurred while sending the request`;
     }
   },
 };

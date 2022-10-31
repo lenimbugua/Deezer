@@ -3,11 +3,35 @@ import TheSpin from "@/components/TheSpin.vue";
 import { useArtistStore } from "@/stores/artist";
 import { useTopTracksStore } from "@/stores/top-tracks";
 import { storeToRefs } from "pinia";
-import { ref } from "vue";
+
+import { useUiStore } from "@/stores/uistore";
+const { setError } = useUiStore();
+
 const artistStore = useArtistStore();
 const { artist, loading } = storeToRefs(artistStore);
+const { error, errorMessage } = storeToRefs(useTopTracksStore);
 const topTracksStore = useTopTracksStore();
 const { fetchTop5Tracks } = topTracksStore;
+
+const formatNum = (num) => {
+  if (num >= 1000000000) {
+    return (num / 1000000000).toFixed(1).replace(/\.0$/, "") + "G";
+  }
+  if (num >= 1000000) {
+    return (num / 1000000).toFixed(1).replace(/\.0$/, "") + "M";
+  }
+  if (num >= 1000) {
+    return (num / 1000).toFixed(1).replace(/\.0$/, "") + "K";
+  }
+  return num;
+};
+
+const fetchTopTracks = async (id) => {
+  await fetchTop5Tracks(id);
+  if (error) {
+    setError(errorMessage.value);
+  }
+};
 </script>
 <template>
   <TheSpin v-if="loading" />
@@ -53,7 +77,7 @@ const { fetchTop5Tracks } = topTracksStore;
         </svg>
 
         <p class="text-md sm:text-xs align-baseline text-slate-700">
-          {{ artist.fans }} Fans
+          {{ formatNum(artist.fans) }} Fans
         </p>
       </div>
       <div class="space-x-2 hidden md:flex">

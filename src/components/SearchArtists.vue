@@ -1,10 +1,20 @@
 <script setup>
 import { useArtistStore } from "@/stores/artist";
+import { useUiStore } from "@/stores/uistore";
+
+import { storeToRefs } from "pinia";
 import { ref } from "vue";
 const artistStore = useArtistStore();
 const { search } = artistStore;
-
+const { error, errorMessage } = storeToRefs(artistStore);
+const { setError } = useUiStore();
 const query = ref("");
+const searchArtist = async (query) => {
+  await search(query);
+  if (error) {
+    setError(errorMessage.value);
+  }
+};
 </script>
 
 <template>
@@ -15,7 +25,7 @@ const query = ref("");
     placeholder="Type artisist name and hit enter...."
     required
     v-model="query"
-    @keydown.enter="search(query)"
+    @keydown.enter="searchArtist(query)"
   />
   <!-- =* * * * * * * * * * * End Of Search Artists Input * * * * * * * * * * *= -->
 </template>

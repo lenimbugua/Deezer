@@ -5,6 +5,12 @@ import TheArtist from "./components/TheArtist.vue";
 import SearchArtists from "./components/SearchArtists.vue";
 import TheChannels from "./components/TheChannels.vue";
 import TheAlbums from "./components/TheAlbums.vue";
+import TheToast from "./components/TheToast.vue";
+
+import { useUiStore } from "@/stores/uistore";
+import { storeToRefs } from "pinia";
+const { toast } = storeToRefs(useUiStore());
+console.log(useUiStore());
 </script>
 
 <template>
@@ -57,13 +63,12 @@ import TheAlbums from "./components/TheAlbums.vue";
         </div>
       </div>
       <!-- =* * * * * * * * * * * End Of the Logo * * * * * * * * * * *= -->
+
       <SearchArtists class="block sm:hidden my-4 w-full" />
+
       <!-- = * * * * * * * * *  Start Of the Artist * * * * * * * * * * = -->
       <TheArtist />
       <!-- =* * * * * * * * * *  End Of the Artist * * * * * * * * * * *= -->
-
-      <!-- =* * * * * * * * * *  Start Of the TheChannels * * * * * * * * * * *= -->
-      <!-- =* * * * * * * * * *  End Of the TheChannels * * * * * * * * * * *= -->
     </div>
   </header>
   <!-- =* * * * * * * * * * * End of the header * * * * * * * * * * *= -->
@@ -75,4 +80,30 @@ import TheAlbums from "./components/TheAlbums.vue";
   <!-- = * * * * * * * * *  Start Of the Albums * * * * * * * * * * = -->
   <TheAlbums />
   <!-- = * * * * * * * * *  End Of the Albums * * * * * * * * * * = -->
+
+  <!-- = * * * * * * * * *  Start Of the Toast* * * * * * * * * * = -->
+
+  <div v-if="toast != null">
+    <Transition name="toast" v-show="toast.hasError">
+      <TheToast>{{ toast.message }}</TheToast>
+    </Transition>
+  </div>
+  <!-- = * * * * * * * * *  End Of the Toast * * * * * * * * * * = -->
 </template>
+
+<style scoped>
+.toast-enter-from {
+  opacity: 0;
+  transform: translateY(-60px);
+}
+.toast-enter-active {
+  transition: all 0.3s ease;
+}
+.toast-leave-to {
+  opacity: 0;
+  transform: translateY(-60px);
+}
+.toast-leave-active {
+  transition: all 0.3s ease;
+}
+</style>
