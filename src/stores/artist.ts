@@ -26,12 +26,14 @@ export interface ArtistState {
   artist: Artist | null;
   loading: Boolean;
   error: Boolean;
+  errorMessage: String;
 }
 
 const state = (): ArtistState => ({
   artist: null,
   loading: false,
   error: false,
+  errorMessage: "",
 });
 
 const getters = {};
@@ -39,6 +41,7 @@ const actions = {
   // search store will perform artist search and subsequently update
   // search state
   async search(query: string) {
+
     const url = `${baseURL}search?q=${query}`;
     try {
       this.loading = true;
@@ -68,6 +71,7 @@ const actions = {
     } catch (error) {
       this.loading = false;
       this.error = true;
+      this.errorMessage = `An Error occurred while sending the request`;
     }
   },
 };

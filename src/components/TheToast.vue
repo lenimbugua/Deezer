@@ -1,6 +1,6 @@
 <template>
   <div class="toast-wrapper z-50">
-    <div class="toast bg-pink-400">There was an error</div>
+    <div class="toast bg-pink-400"><slot /></div>
   </div>
 </template>
 

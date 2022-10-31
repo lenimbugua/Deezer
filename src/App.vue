@@ -7,19 +7,10 @@ import TheChannels from "./components/TheChannels.vue";
 import TheAlbums from "./components/TheAlbums.vue";
 import TheToast from "./components/TheToast.vue";
 
-import { useArtistStore } from "@/stores/artist";
-import { useTopTracksStore } from "@/stores/top-tracks";
+import { useUiStore } from "@/stores/uistore";
 import { storeToRefs } from "pinia";
-const artistStore = useArtistStore();
-const { artist, loading, error } = storeToRefs(artistStore);
-const topTracksStore = useTopTracksStore();
-const { fetchTop5Tracks } = topTracksStore;
-
-const showToast = () => {
-  return error.value;
-};
-
-
+const { toast } = storeToRefs(useUiStore());
+console.log(useUiStore());
 </script>
 
 <template>
@@ -72,13 +63,12 @@ const showToast = () => {
         </div>
       </div>
       <!-- =* * * * * * * * * * * End Of the Logo * * * * * * * * * * *= -->
+
       <SearchArtists class="block sm:hidden my-4 w-full" />
+
       <!-- = * * * * * * * * *  Start Of the Artist * * * * * * * * * * = -->
       <TheArtist />
       <!-- =* * * * * * * * * *  End Of the Artist * * * * * * * * * * *= -->
-
-      <!-- =* * * * * * * * * *  Start Of the TheChannels * * * * * * * * * * *= -->
-      <!-- =* * * * * * * * * *  End Of the TheChannels * * * * * * * * * * *= -->
     </div>
   </header>
   <!-- =* * * * * * * * * * * End of the header * * * * * * * * * * *= -->
@@ -92,9 +82,12 @@ const showToast = () => {
   <!-- = * * * * * * * * *  End Of the Albums * * * * * * * * * * = -->
 
   <!-- = * * * * * * * * *  Start Of the Toast* * * * * * * * * * = -->
-  <Transition name="toast" v-show="error">
-    <TheToast />
-  </Transition>
+
+  <div v-if="toast != null">
+    <Transition name="toast" v-show="toast.hasError">
+      <TheToast>{{ toast.message }}</TheToast>
+    </Transition>
+  </div>
   <!-- = * * * * * * * * *  End Of the Toast * * * * * * * * * * = -->
 </template>
 
