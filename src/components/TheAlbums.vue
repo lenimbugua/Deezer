@@ -1,5 +1,5 @@
 <script setup>
-import ReleaseDate from "./ReleaseDate.vue"
+import ReleaseDate from "./ReleaseDate.vue";
 import { useTopTracksStore } from "@/stores/top-tracks";
 import { storeToRefs } from "pinia";
 const topTracksStore = useTopTracksStore();
@@ -27,8 +27,10 @@ const { toptracks } = storeToRefs(topTracksStore);
             />
           </div>
 
-          <div>{{ track.album.title }}</div>
-          <ReleaseDate :id="track.album.id"/>
+          <div class="mt-3 font-semibold text-slate-700">
+            {{ track.album.title }}
+          </div>
+          <ReleaseDate v-if="toptracks" :id="track.album.id" />
         </div>
       </section>
     </div>

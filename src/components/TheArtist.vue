@@ -1,14 +1,16 @@
 <script setup>
+import TheSpin from "@/components/TheSpin.vue";
 import { useArtistStore } from "@/stores/artist";
 import { useTopTracksStore } from "@/stores/top-tracks";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
 const artistStore = useArtistStore();
-const { artist } = storeToRefs(artistStore);
+const { artist, loading } = storeToRefs(artistStore);
 const topTracksStore = useTopTracksStore();
 const { fetchTop5Tracks } = topTracksStore;
 </script>
 <template>
+  <TheSpin v-if="loading" />
   <section @click="fetchTop5Tracks(artist.id)" class="cursor-pointer mt-3">
     <div
       v-if="artist != null"
@@ -50,7 +52,7 @@ const { fetchTop5Tracks } = topTracksStore;
           />
         </svg>
 
-        <p class="text-md sm:text-xs  align-baseline text-slate-700">
+        <p class="text-md sm:text-xs align-baseline text-slate-700">
           {{ artist.fans }} Fans
         </p>
       </div>

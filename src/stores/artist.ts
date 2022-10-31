@@ -24,10 +24,12 @@ export interface TopTracks {
 }
 export interface ArtistState {
   artist: Artist | null;
+  loading: Boolean;
 }
 
 const state = (): ArtistState => ({
   artist: null,
+  loading: false,
 });
 
 const getters = {};
@@ -37,6 +39,7 @@ const actions = {
   async search(query: string) {
     const url = `${baseURL}search?q=${query}`;
     try {
+      this.loading = true;
       const response = await axios.get(url);
 
       const { artist } = response.data.data[0];
@@ -44,6 +47,8 @@ const actions = {
       const artistURL = `${baseURL}/artist/${artist.id}`;
 
       const { data } = await axios.get(artistURL);
+      console.log(this.loading);
+      this.loading = false;
       const { name, id, picture, tracklist } = data;
 
       const fans = data.nb_fan;
