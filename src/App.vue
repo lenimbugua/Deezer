@@ -4,6 +4,7 @@ import TheDetails from "./components/TheDetails.vue";
 import TheBreadcrump from "./components/TheBreadcrump.vue";
 import TheArtist from "./components/TheArtist.vue";
 import TheChannels from "./components/TheChannels.vue";
+import TheAlbums from "./components/TheAlbums.vue";
 </script>
 
 <template>
@@ -30,5 +31,11 @@ import TheChannels from "./components/TheChannels.vue";
   </header>
   <!-- =* * * * * * * * * * * End of the header * * * * * * * * * * *= -->
 
-  <TheDetails/>
+  <!-- = * * * * * * * * *  Start Of the Details * * * * * * * * * * = -->
+  <TheDetails />
+  <!-- = * * * * * * * * *  End Of the Details * * * * * * * * * * = -->
+
+  <!-- = * * * * * * * * *  Start Of the Albums * * * * * * * * * * = -->
+  <TheAlbums />
+  <!-- = * * * * * * * * *  End Of the Albums * * * * * * * * * * = -->
 </template>
