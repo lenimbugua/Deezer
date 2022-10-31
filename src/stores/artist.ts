@@ -64,16 +64,7 @@ const actions = {
       };
       console.log(this.artist);
     } catch (error) {
-      console.log(`There was an error calling the api ${error}`);
-    }
-  },
-  async fetchTop5Tracks(artistID: string) {
-    const url = `${baseURL}artist/${artistID}/top?limit=5`;
-    try {
-      const response = await axios.get(url);
-
-      console.log(response);
-    } catch (error) {
+      this.loading = false;
       console.log(`There was an error calling the api ${error}`);
     }
   },

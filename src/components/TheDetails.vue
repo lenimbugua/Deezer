@@ -2,15 +2,18 @@
 import SearchArtists from "@/components/SearchArtists.vue";
 import MusicSVG from "./MusicSVG.vue";
 import TrackList from "./TrackList.vue";
+import TheSpin from "./TheSpin.vue";
 
 import { useTopTracksStore } from "@/stores/top-tracks";
 import { storeToRefs } from "pinia";
 const topTracksStore = useTopTracksStore();
-const { toptracks } = storeToRefs(topTracksStore);
+const { toptracks, loading } = storeToRefs(topTracksStore);
 </script>
 <template>
   <!-- =* * * * * * * * * *  The details * * * * * * * * * * *= -->
+  <TheSpin v-if="loading" />
   <main
+    v-else
     class="border-t border-slate-200 lg:relative lg:ml-112 lg:border-t-0 xl:ml-120"
   >
     <MusicSVG />

@@ -17,17 +17,22 @@ export interface TopTracks {
 }
 export interface TopTracksState {
   toptracks: TopTracks[] | null;
+  loading: Boolean;
 }
 
 const state = (): TopTracksState => ({
   toptracks: [],
+  loading: false,
 });
 
 const actions = {
   async fetchTop5Tracks(artistID: string, limit: Number) {
     const url = `${baseURL}artist/${artistID}/top?limit=${limit}`;
     try {
+      this.loading = true;
       const response = await axios.get(url);
+      this.loading = false;
+
       const tracks = response.data.data;
       console.log(tracks);
       //reset first before updating
@@ -49,6 +54,7 @@ const actions = {
       console.log(this.toptracks);
     } catch (error) {
       console.log(`There was an error calling the api ${error}`);
+      this.loading = false;
     }
   },
 };
