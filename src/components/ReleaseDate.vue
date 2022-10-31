@@ -14,7 +14,7 @@ console.log(album);
   <time
     v-if="album"
     datetime="2022-02-24T00:00:00.000Z"
-    class="order-first font-mono text-sm leading-7 text-slate-500"
+    class="order-first font-mono text-sm leading-7 text-slate-500 pt-3"
     >{{ album.releaseDate }}</time
   >
 </template>

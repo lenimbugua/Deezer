@@ -3,7 +3,6 @@ import TheSpin from "@/components/TheSpin.vue";
 import { useArtistStore } from "@/stores/artist";
 import { useTopTracksStore } from "@/stores/top-tracks";
 import { storeToRefs } from "pinia";
-import { ref } from "vue";
 const artistStore = useArtistStore();
 const { artist, loading } = storeToRefs(artistStore);
 const topTracksStore = useTopTracksStore();

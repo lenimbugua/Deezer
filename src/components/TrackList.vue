@@ -4,6 +4,11 @@ import { storeToRefs } from "pinia";
 import { ref } from "vue";
 const topTracksStore = useTopTracksStore();
 const { toptracks } = storeToRefs(topTracksStore);
+
+const formatDuration = (duration) => {
+  duration = duration / 60;
+  return duration.toFixed(2);
+};
 </script>
 <template>
   <div v-if="toptracks.length" class="bg-white rounded-md w-5/6 mx-4">
@@ -49,7 +54,7 @@ const { toptracks } = storeToRefs(topTracksStore);
 
                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                   <p class="text-gray-900 whitespace-no-wrap">
-                    {{ track.duration }}
+                    {{ formatDuration(track.duration) }}
                   </p>
                 </td>
               </tr>

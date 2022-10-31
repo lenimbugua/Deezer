@@ -25,11 +25,13 @@ export interface TopTracks {
 export interface ArtistState {
   artist: Artist | null;
   loading: Boolean;
+  error: Boolean;
 }
 
 const state = (): ArtistState => ({
   artist: null,
   loading: false,
+  error: false,
 });
 
 const getters = {};
@@ -65,7 +67,7 @@ const actions = {
       console.log(this.artist);
     } catch (error) {
       this.loading = false;
-      console.log(`There was an error calling the api ${error}`);
+      this.error = true;
     }
   },
 };

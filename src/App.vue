@@ -5,6 +5,21 @@ import TheArtist from "./components/TheArtist.vue";
 import SearchArtists from "./components/SearchArtists.vue";
 import TheChannels from "./components/TheChannels.vue";
 import TheAlbums from "./components/TheAlbums.vue";
+import TheToast from "./components/TheToast.vue";
+
+import { useArtistStore } from "@/stores/artist";
+import { useTopTracksStore } from "@/stores/top-tracks";
+import { storeToRefs } from "pinia";
+const artistStore = useArtistStore();
+const { artist, loading, error } = storeToRefs(artistStore);
+const topTracksStore = useTopTracksStore();
+const { fetchTop5Tracks } = topTracksStore;
+
+const showToast = () => {
+  return error.value;
+};
+
+
 </script>
 
 <template>
@@ -75,4 +90,27 @@ import TheAlbums from "./components/TheAlbums.vue";
   <!-- = * * * * * * * * *  Start Of the Albums * * * * * * * * * * = -->
   <TheAlbums />
   <!-- = * * * * * * * * *  End Of the Albums * * * * * * * * * * = -->
+
+  <!-- = * * * * * * * * *  Start Of the Toast* * * * * * * * * * = -->
+  <Transition name="toast" v-show="error">
+    <TheToast />
+  </Transition>
+  <!-- = * * * * * * * * *  End Of the Toast * * * * * * * * * * = -->
 </template>
+
+<style scoped>
+.toast-enter-from {
+  opacity: 0;
+  transform: translateY(-60px);
+}
+.toast-enter-active {
+  transition: all 0.3s ease;
+}
+.toast-leave-to {
+  opacity: 0;
+  transform: translateY(-60px);
+}
+.toast-leave-active {
+  transition: all 0.3s ease;
+}
+</style>
