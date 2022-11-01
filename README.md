@@ -29,7 +29,3 @@ npm run build
 ```
 npm run test
 ```
-
-### if your api calls are not going through because of Cors use the below link to bypass
-
-https://deezer-cors-proxy.herokuapp.com/corsdemo
