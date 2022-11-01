@@ -53,10 +53,11 @@ const actions = {
       const { data } = await axios.get(artistURL);
       console.log(this.loading);
       this.loading = false;
-      const { name, id, picture, tracklist } = data;
+      const { name, id, tracklist } = data;
 
       const fans = data.nb_fan;
       const albums = data.nb_album;
+      const picture = data.picture_medium;
 
       this.artist = {
         name,
