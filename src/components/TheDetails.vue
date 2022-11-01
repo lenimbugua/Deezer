@@ -18,7 +18,7 @@ const { toptracks, loading } = storeToRefs(topTracksStore);
   >
     <MusicSVG />
     <div class="relative">
-      <div class="sm:pt-16 lg:pt-12">
+      <div class="lg:pt-12">
         <SearchArtists class="hidden lg:block w-5/6 ml-4" />
 
         <div

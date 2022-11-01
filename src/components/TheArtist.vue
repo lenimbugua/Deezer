@@ -35,10 +35,13 @@ const fetchTopTracks = async (id) => {
 </script>
 <template>
   <TheSpin v-if="loading" />
-  <section @click="fetchTop5Tracks(artist.id)" class="cursor-pointer mt-3">
+  <section
+    @click="fetchTop5Tracks(artist.id)"
+    class="cursor-pointer block sm:flex space-x-3 lg:block mt-3"
+  >
     <div
       v-if="artist != null"
-      class="relative lg:mx-auto block w-full overflow-hidden rounded-lg bg-slate-200 shadow-xl shadow-slate-200 sm:w-64 sm:rounded-xl lg:w-auto lg:rounded-2xl"
+      class="relative lg:mx-auto flex space-x-2 w-full overflow-hidden rounded-lg bg-slate-200 shadow-xl shadow-slate-200 sm:w-64 sm:rounded-xl lg:w-auto lg:rounded-2xl"
       aria-label="Homepage"
     >
       <img
@@ -54,12 +57,12 @@ const fetchTopTracks = async (id) => {
         class="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10 sm:rounded-xl lg:rounded-2xl"
       ></div>
     </div>
-    <div v-if="artist != null" class="mt-3 lg:text-left">
-      <p class="text-xl font-semibold text-slate-800">
-        <a href="/">{{ artist.name }}</a>
-      </p>
-    </div>
-    <section v-if="artist != null" class="mt-2">
+    <section v-if="artist != null" class="mt-2 sm:mt-0 lg:mt-0">
+      <div v-if="artist != null" class="mt-3 lg:text-left">
+        <p class="text-xl font-semibold text-slate-800">
+          <a href="/">{{ artist.name }}</a>
+        </p>
+      </div>
       <div class="flex space-x-2 mb-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +83,7 @@ const fetchTopTracks = async (id) => {
           {{ formatNum(artist.fans) }} Fans
         </p>
       </div>
-      <div class="space-x-2 hidden md:flex">
+      <div class="space-x-2 hidden sm:flex">
         <svg aria-hidden="true" viewBox="0 0 10 10" class="h-4 w-4">
           <path
             d="M0 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5Z"
