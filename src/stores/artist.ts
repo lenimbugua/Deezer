@@ -57,7 +57,7 @@ const actions = {
 
       const fans = data.nb_fan;
       const albums = data.nb_album;
-      const picture = data.picture_medium;
+      const picture = data.picture_big;
 
       this.artist = {
         name,

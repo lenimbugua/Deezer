@@ -9,7 +9,7 @@ const { toptracks, loading } = storeToRefs(topTracksStore);
 <template>
   <TheSpin v-if="loading" />
   <section
-    v-else
+    v-if="toptracks.length"
     class="border-t border-slate-200 bg-slate-100 py-5 pb-40 sm:pb-32"
   >
     <div class="mx-auto">
