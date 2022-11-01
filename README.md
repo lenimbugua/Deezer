@@ -8,7 +8,11 @@ Deezer is an internet-based music streaming service
 
 ## Project setup
 
-```bash
+```
+git clone https://github.com/lenimbugua/Deezer.git
+```
+
+```
 npm install
 ```
 
