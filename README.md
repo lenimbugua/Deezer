@@ -4,7 +4,7 @@ Deezer is an internet-based music streaming service
 
 ## Live Demo
 
-**Form:** https://vue-custom-form.herokuapp.com/
+**Deezer:** https://deezer-music-9ay2s55lz-leon9mbugua.vercel.app/
 
 ## Project setup
 
@@ -29,3 +29,7 @@ npm run build
 ```
 npm run test
 ```
+
+### if your api calls are not going through because of Cors use the below link to bypass
+
+https://cors-anywhere.herokuapp.com/corsdemo
