@@ -38,7 +38,7 @@ const fetchTopTracks = async (id) => {
   <section @click="fetchTop5Tracks(artist.id)" class="cursor-pointer mt-3">
     <div
       v-if="artist != null"
-      class="relative mx-auto block w-full overflow-hidden rounded-lg bg-slate-200 shadow-xl shadow-slate-200 sm:w-64 sm:rounded-xl lg:w-auto lg:rounded-2xl"
+      class="relative lg:mx-auto block w-full overflow-hidden rounded-lg bg-slate-200 shadow-xl shadow-slate-200 sm:w-64 sm:rounded-xl lg:w-auto lg:rounded-2xl"
       aria-label="Homepage"
     >
       <img
