@@ -1,6 +1,7 @@
 <script setup>
 import { useArtistStore } from "@/stores/artist";
 import { useUiStore } from "@/stores/uistore";
+import { useTopTracksStore } from "@/stores/top-tracks";
 
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
@@ -10,6 +11,8 @@ const { error, errorMessage } = storeToRefs(artistStore);
 const { setError } = useUiStore();
 const query = ref("");
 const searchArtist = async (query) => {
+  //reset album store
+  useTopTracksStore().$reset();
   await search(query);
   if (error.value) {
     setError(errorMessage.value);
