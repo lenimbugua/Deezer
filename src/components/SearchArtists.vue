@@ -11,6 +11,9 @@ const { setError } = useUiStore();
 const query = ref("");
 const searchArtist = async (query) => {
   await search(query);
+  if (error.value) {
+    setError(errorMessage.value);
+  }
 };
 </script>
 

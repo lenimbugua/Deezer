@@ -8,7 +8,7 @@
 .toast-wrapper {
   position: fixed;
   width: 100%;
-  top: 20px;
+  bottom: 0px;
 }
 .toast {
   padding: 20px;

@@ -70,7 +70,7 @@ const actions = {
     } catch (error) {
       this.loading = false;
       this.error = true;
-      this.errorMessage = `An Error occurred while sending the request: ${error}`;
+      this.errorMessage = `An Error occurred while sending the request: ${error()}`;
     }
   },
 };
