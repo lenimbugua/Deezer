@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
-const corsURL = `https://cors-anywhere.herokuapp.com/`;
+const corsURL = `https://deezer-cors-proxy.herokuapp.com/`;
 const baseURL = `${corsURL}https://api.deezer.com/`;
 
 export interface Album {

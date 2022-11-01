@@ -32,4 +32,4 @@ npm run test
 
 ### if your api calls are not going through because of Cors use the below link to bypass
 
-https://cors-anywhere.herokuapp.com/corsdemo
+https://deezer-cors-proxy.herokuapp.com/corsdemo

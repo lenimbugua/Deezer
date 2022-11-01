@@ -153,7 +153,7 @@ const actions = {
     this.count++;
     try {
       const response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=eminem`
+        `https://deezer-cors-proxy.herokuapp.com/https://api.deezer.com/search?q=eminem`
       );
 <span class="branch-0 cbranch-no" title="branch not covered" >      console.log(response);</span>
 <span class="cstat-no" title="statement not covered" >    } catch (error) {</span>
