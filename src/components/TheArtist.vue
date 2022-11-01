@@ -28,7 +28,7 @@ const formatNum = (num) => {
 
 const fetchTopTracks = async (id) => {
   await fetchTop5Tracks(id);
-  if (error) {
+  if (error.value) {
     setError(errorMessage.value);
   }
 };
