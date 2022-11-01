@@ -4,7 +4,7 @@ Deezer is an internet-based music streaming service
 
 ## Live Demo
 
-**Deezer:** https://deezer-music-9ay2s55lz-leon9mbugua.vercel.app/
+**Deezer:** https://deezer-music-cyan.vercel.app/
 
 ## Project setup
 
