@@ -51,7 +51,6 @@ const actions = {
       const artistURL = `${baseURL}/artist/${artist.id}`;
 
       const { data } = await axios.get(artistURL);
-      console.log(this.loading);
       this.loading = false;
       const { name, id, tracklist } = data;
 
@@ -67,7 +66,6 @@ const actions = {
         albums,
         tracklist,
       };
-      console.log(this.artist);
     } catch (error) {
       this.loading = false;
       this.error = true;

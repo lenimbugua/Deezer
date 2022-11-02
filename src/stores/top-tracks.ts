@@ -38,7 +38,6 @@ const actions = {
       this.loading = false;
 
       const tracks = response.data.data;
-      console.log(tracks);
       //reset first before updating
       this.toptracks = [];
       for (let track of response.data.data) {
@@ -54,8 +53,6 @@ const actions = {
           album,
         });
       }
-
-      console.log(this.toptracks);
     } catch (error) {
       this.loading = false;
       this.error = true;
