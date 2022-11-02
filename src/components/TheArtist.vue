@@ -27,6 +27,7 @@ const formatNum = (num) => {
 };
 
 const fetchTopTracks = async (id) => {
+  useTopTracksStore().$reset();
   await fetchTop5Tracks(id);
   if (error.value) {
     setError(errorMessage.value);
