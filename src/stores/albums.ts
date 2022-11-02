@@ -24,11 +24,9 @@ const actions = {
     const url = `${baseURL}album/${albumID}`;
     try {
       const response = await axios.get(url);
-      console.log(response);
       const { cover, id, title } = response.data;
       const releaseDate = response.data.release_date;
       this.album = [...this.album, { cover, id, title, releaseDate }];
-      console.log(this.album);
     } catch (error) {
       console.log(`There was an error calling the api ${error}`);
     }

@@ -3,6 +3,7 @@ import TheSpin from "@/components/TheSpin.vue";
 import ReleaseDate from "./ReleaseDate.vue";
 import { useTopTracksStore } from "@/stores/top-tracks";
 import { storeToRefs } from "pinia";
+import MusicSVG from "./MusicSVG.vue";
 const topTracksStore = useTopTracksStore();
 const { toptracks, loading } = storeToRefs(topTracksStore);
 </script>

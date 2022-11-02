@@ -9,8 +9,8 @@ import TheToast from "./components/TheToast.vue";
 
 import { useUiStore } from "@/stores/uistore";
 import { storeToRefs } from "pinia";
+import MusicSVG from "./components/MusicSVG.vue";
 const { toast } = storeToRefs(useUiStore());
-console.log(useUiStore());
 </script>
 
 <template>
@@ -89,6 +89,7 @@ console.log(useUiStore());
     </Transition>
   </div>
   <!-- = * * * * * * * * *  End Of the Toast * * * * * * * * * * = -->
+  <MusicSVG />
 </template>
 
 <style scoped>

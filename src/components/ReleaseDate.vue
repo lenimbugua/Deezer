@@ -17,7 +17,6 @@ const getReleaseDate = (albumID) => {
     return singleAlbum.releaseDate;
   }
 };
-console.log(album.value);
 </script>
 <template>
   <time
