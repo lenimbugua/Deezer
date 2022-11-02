@@ -12,11 +12,11 @@ export interface Album {
 }
 
 export interface AlbumState {
-  album: Album | null;
+  album: Album[] | null;
 }
 
 const state = (): AlbumState => ({
-  album: null,
+  album: [],
 });
 
 const actions = {
@@ -27,9 +27,8 @@ const actions = {
       console.log(response);
       const { cover, id, title } = response.data;
       const releaseDate = response.data.release_date;
-      //reset first before updating
-      this.album = null;
-      this.album = { cover, id, title, releaseDate };
+      this.album = [...this.album, { cover, id, title, releaseDate }];
+      console.log(this.album);
     } catch (error) {
       console.log(`There was an error calling the api ${error}`);
     }
