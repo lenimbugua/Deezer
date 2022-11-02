@@ -1,5 +1,5 @@
 <template>
-  <svg class="absolute left-0 top-0 h-20 w-full">
+  <svg class="absolute left-0 top-0 h-20 w-full fill-purple-500">
     <defs>
       <linearGradient id=":Rkm:-fade" x1="0" x2="0" y1="0" y2="1">
         <stop offset="40%" stop-color="white"></stop>
