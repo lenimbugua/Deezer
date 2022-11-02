@@ -35,7 +35,7 @@ console.log(useUiStore());
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-8 h-8 text-violet-300"
+              class="w-8 h-8 text-violet-500"
             >
               <path
                 stroke-linecap="round"
@@ -51,7 +51,7 @@ console.log(useUiStore());
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-8 h-8 text-violet-300"
+              class="w-8 h-8 text-violet-500"
             >
               <path
                 stroke-linecap="round"

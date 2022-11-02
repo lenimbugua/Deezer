@@ -70,7 +70,7 @@ const fetchTopTracks = async (id) => {
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="w-5 h-5 fill-blue-300 text-violet-300"
+          class="w-5 h-5 fill-violet-400 text-blue-500"
         >
           <path
             stroke-linecap="round"
@@ -84,16 +84,8 @@ const fetchTopTracks = async (id) => {
         </p>
       </div>
       <div class="space-x-2 hidden sm:flex">
-        <svg aria-hidden="true" viewBox="0 0 10 10" class="h-4 w-4">
-          <path
-            d="M0 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5Z"
-            class="fill-violet-300"
-          ></path>
-          <path
-            d="M6 1a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V1Z"
-            class="fill-pink-300"
-          ></path>
-        </svg>
+        <img class="h-5 w-5" src="@/assets/album.svg " />
+
         <p class="text-xs text-gray-600">{{ artist.albums }} Albums</p>
       </div>
     </section>
