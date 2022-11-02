@@ -8,13 +8,22 @@ const props = defineProps({
 });
 fetchAlbums(props.id);
 const { album } = storeToRefs(albumStore);
-console.log(album);
+
+const getReleaseDate = (albumID) => {
+  let singleAlbum = album.value.find((album) => {
+    return album.id === albumID;
+  });
+  if (singleAlbum) {
+    return singleAlbum.releaseDate;
+  }
+};
+console.log(album.value);
 </script>
 <template>
   <time
-    v-if="album"
+    v-if="album.length"
     datetime="2022-02-24T00:00:00.000Z"
     class="order-first font-mono text-sm leading-7 text-slate-500 pt-3"
-    >{{ album.releaseDate }}</time
+    >{{ getReleaseDate(id) }}</time
   >
 </template>
