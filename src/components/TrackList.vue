@@ -22,7 +22,19 @@ const formatDuration = (duration) => {
                   colspan="3"
                   class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"
                 >
-                  <h2 class="mt-2 text-lg font-bold text-slate-900">
+                  <h2
+                    class="mt-2 flex space-x-2 text-lg font-bold text-slate-900"
+                  >
+                    <svg aria-hidden="true" viewBox="0 0 10 10" class="h-5 w-5">
+                      <path
+                        d="M0 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5Z"
+                        class="fill-violet-300"
+                      ></path>
+                      <path
+                        d="M6 1a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V1Z"
+                        class="fill-pink-300"
+                      ></path>
+                    </svg>
                     <a href="/5">Top 5 Tracks</a>
                   </h2>
                 </th>
