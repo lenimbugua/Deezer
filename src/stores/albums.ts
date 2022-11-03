@@ -25,7 +25,7 @@ const actions = {
       const releaseDate = response.data.release_date;
       this.album = [...this.album, { cover, id, title, releaseDate }];
     } catch (error) {
-      console.log(`There was an error calling the api ${error}`);
+      console.log(`There was an error sending request ${error}`);
     }
   },
 };

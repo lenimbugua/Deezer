@@ -1,5 +1,5 @@
 import axios from "axios";
-import definedConstants from "@/utilities/defined-constants";
+import definedConstants from "./defined-constants";
 
 const { baseURL } = definedConstants();
 
