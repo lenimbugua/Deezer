@@ -6,7 +6,8 @@ import { useAlbumStore } from "@/stores/albums";
 import { storeToRefs } from "pinia";
 import { useUiStore } from "@/stores/uistore";
 import { useRoute } from "vue-router";
-
+import utils from "@/utilities/utils";
+const { formatNum } = utils();
 const { setError } = useUiStore();
 
 const artistStore = useArtistStore();
@@ -17,24 +18,12 @@ const albumStore = useAlbumStore();
 
 const { fetchTop5Tracks } = topTracksStore;
 
-const formatNum = (num) => {
-  if (num >= 1000000000) {
-    return (num / 1000000000).toFixed(1).replace(/\.0$/, "") + "G";
-  }
-  if (num >= 1000000) {
-    return (num / 1000000).toFixed(1).replace(/\.0$/, "") + "M";
-  }
-  if (num >= 1000) {
-    return (num / 1000).toFixed(1).replace(/\.0$/, "") + "K";
-  }
-  return num;
-};
-
 const route = useRoute();
 
 const id = route.params.id;
 const fetchTopTracks = async () => {
   useAlbumStore().$reset();
+  useTopTracksStore().$reset();
   const limit = 5;
   await fetchTop5Tracks(id, limit);
   if (error.value) {

@@ -4,14 +4,13 @@ import ReleaseDate from "./ReleaseDate.vue";
 import { useTopTracksStore } from "@/stores/top-tracks";
 import { storeToRefs } from "pinia";
 import MusicSVG from "./MusicSVG.vue";
-const topTracksStore = useTopTracksStore();
-const { toptracks, loading } = storeToRefs(topTracksStore);
+const { toptracks, loading } = storeToRefs(useTopTracksStore());
 </script>
 <template>
   <!--=* * * * * * * * * * * Albums Start * * * * * * * * * * *=-->
   <TheSpin v-if="loading" />
   <section
-    v-if="toptracks.length"
+    v-else
     class="border-t border-slate-200 bg-slate-100 py-5 pb-40 sm:pb-32"
   >
     <div class="mx-auto">
@@ -34,11 +33,9 @@ const { toptracks, loading } = storeToRefs(topTracksStore);
             />
           </div>
 
-            <span
-              class=" mt-3 block font-semibold text-slate-700"
-            >
-              {{ track.album.title }}
-            </span>
+          <span class="mt-3 block font-semibold text-slate-700">
+            {{ track.album.title }}
+          </span>
           <ReleaseDate v-if="toptracks" :id="track.album.id" />
         </div>
       </section>

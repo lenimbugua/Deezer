@@ -7,28 +7,16 @@ import TheSpin from "@/components/TheSpin.vue";
 import { useArtistStore } from "@/stores/artist";
 import { storeToRefs } from "pinia";
 
-import { useUiStore } from "@/stores/uistore";
 import { useRouter } from "vue-router";
+import utils from "@/utilities/utils";
 
-const artistStore = useArtistStore();
-const { artists, loading } = storeToRefs(artistStore);
-const { setSingleArtist } = artistStore;
+const { artists, loading } = storeToRefs(useArtistStore());
+const { setSingleArtist } = useArtistStore();
+const { formatNum } = utils();
 
-const formatNum = (num) => {
-  if (num >= 1000000000) {
-    return (num / 1000000000).toFixed(1).replace(/\.0$/, "") + "G";
-  }
-  if (num >= 1000000) {
-    return (num / 1000000).toFixed(1).replace(/\.0$/, "") + "M";
-  }
-  if (num >= 1000) {
-    return (num / 1000).toFixed(1).replace(/\.0$/, "") + "K";
-  }
-  return num;
-};
 const router = useRouter();
-const setArtist = (name, id, picture, fans) => {
-  setSingleArtist({ name, id, picture, fans });
+const setArtist = (name, id, picture, fans, albums) => {
+  setSingleArtist({ name, id, picture, fans, albums });
   router.push({ name: "artist", params: { id: id } });
 };
 </script>
@@ -49,7 +37,13 @@ const setArtist = (name, id, picture, fans) => {
     <div
       v-for="(artist, index) in artists"
       @click="
-        setArtist(artist.name, artist.id, artist.picture_big, artist.fans)
+        setArtist(
+          artist.name,
+          artist.id,
+          artist.picture_big,
+          artist.nb_fan,
+          artist.nb_album
+        )
       "
       v-if="artists.length"
       class="mb-8 cursor-pointer"
