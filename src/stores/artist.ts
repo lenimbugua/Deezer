@@ -7,6 +7,7 @@ export interface Artist {
   id: string;
   picture: string;
   fans: Number;
+  albums: Number;
 }
 
 export interface Album {
