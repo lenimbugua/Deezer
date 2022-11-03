@@ -19,7 +19,7 @@ const { toptracks, loading } = storeToRefs(topTracksStore);
         <div
           v-for="track in toptracks"
           :key="track.title"
-          class="cursor-pointer"
+          class="cursor-pointer w-full"
         >
           <div
             class="relative w-24 h-24 sm:w-36 sm:h-36 overflow-hidden block rounded-lg bg-slate-200 shadow-xl shadow-slate-200 sm:rounded-xl"
@@ -34,9 +34,11 @@ const { toptracks, loading } = storeToRefs(topTracksStore);
             />
           </div>
 
-          <div class="mt-3 font-semibold text-slate-700">
-            {{ track.album.title }}
-          </div>
+            <span
+              class=" mt-3 block font-semibold text-slate-700"
+            >
+              {{ track.album.title }}
+            </span>
           <ReleaseDate v-if="toptracks" :id="track.album.id" />
         </div>
       </section>

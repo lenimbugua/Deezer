@@ -11,7 +11,7 @@ const { setError } = useUiStore();
 
 const artistStore = useArtistStore();
 const { artist, loading } = storeToRefs(artistStore);
-const { error, errorMessage } = storeToRefs(useTopTracksStore);
+const { error, errorMessage } = storeToRefs(useTopTracksStore());
 const topTracksStore = useTopTracksStore();
 const albumStore = useAlbumStore();
 
@@ -35,13 +35,13 @@ const route = useRoute();
 const id = route.params.id;
 const fetchTopTracks = async () => {
   useAlbumStore().$reset();
-  await fetchTop5Tracks(id);
+  const limit = 5;
+  await fetchTop5Tracks(id, limit);
   if (error.value) {
     setError(errorMessage.value);
   }
 };
 fetchTopTracks();
-
 </script>
 <template>
   <TheSpin v-if="loading" />
@@ -55,8 +55,7 @@ fetchTopTracks();
       aria-label="Homepage"
     >
       <img
-        alt=""
-        sizes="(min-width: 1024px) 20rem, (min-width: 640px) 16rem, 12rem"
+        alt="artist picture"
         :src="artist.picture"
         decoding="async"
         data-nimg="future"
