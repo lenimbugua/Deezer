@@ -1,8 +1,5 @@
 import { defineStore } from "pinia";
-import axios from "axios";
-
-const corsURL = `https://deezer-cors-proxy.herokuapp.com/`;
-const baseURL = `${corsURL}https://api.deezer.com/`;
+import API from "../utilities/API";
 
 export interface Album {
   cover: string;
@@ -31,10 +28,10 @@ const state = (): TopTracksState => ({
 
 const actions = {
   async fetchTop5Tracks(artistID: string, limit: Number) {
-    const url = `${baseURL}artist/${artistID}/top?limit=${limit}`;
+    const url = `artist/${artistID}/top?limit=${limit}`;
     try {
       this.loading = true;
-      const response = await axios.get(url);
+      const response = await API().get(url);
       this.loading = false;
 
       const tracks = response.data.data;
@@ -56,7 +53,7 @@ const actions = {
     } catch (error) {
       this.loading = false;
       this.error = true;
-      this.errorMessage = `An Error occurred while sending the request`;
+      this.errorMessage = `An error occurred while sending the request ${error}`;
     }
   },
 };

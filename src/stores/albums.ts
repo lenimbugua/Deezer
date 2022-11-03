@@ -1,8 +1,5 @@
 import { defineStore } from "pinia";
-import axios from "axios";
-
-const corsURL = `https://deezer-cors-proxy.herokuapp.com/`;
-const baseURL = `${corsURL}https://api.deezer.com/`;
+import API from "../utilities/API";
 
 export interface Album {
   cover: string;
@@ -21,9 +18,9 @@ const state = (): AlbumState => ({
 
 const actions = {
   async fetchAlbums(albumID: Number) {
-    const url = `${baseURL}album/${albumID}`;
+    const url = `album/${albumID}`;
     try {
-      const response = await axios.get(url);
+      const response = await API().get(url);
       const { cover, id, title } = response.data;
       const releaseDate = response.data.release_date;
       this.album = [...this.album, { cover, id, title, releaseDate }];
