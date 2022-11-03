@@ -3,7 +3,6 @@ import TheDetails from "./components/TheDetails.vue";
 import TheBreadcrump from "./components/TheBreadcrump.vue";
 import TheArtist from "./components/TheArtist.vue";
 import SearchArtists from "./components/SearchArtists.vue";
-import TheChannels from "./components/TheChannels.vue";
 import TheAlbums from "./components/TheAlbums.vue";
 import TheToast from "./components/TheToast.vue";
 

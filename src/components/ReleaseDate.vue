@@ -19,10 +19,12 @@ const getReleaseDate = (albumID) => {
 };
 </script>
 <template>
+  <!--=* * * * * * * * * * * Album Release Date Start * * * * * * * * * * *=-->
   <time
     v-if="album.length"
     datetime="2022-02-24T00:00:00.000Z"
     class="order-first font-mono text-sm leading-7 text-slate-500 pt-3"
     >{{ getReleaseDate(id) }}</time
   >
+  <!--=* * * * * * * * * * * Album Release Date Start * * * * * * * * * * *=-->
 </template>
