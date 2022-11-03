@@ -48,7 +48,9 @@ const setArtist = (name, id, picture, fans) => {
   >
     <div
       v-for="(artist, index) in artists"
-      @click="setArtist(artist.name, artist.id, artist.picture, artist.fans)"
+      @click="
+        setArtist(artist.name, artist.id, artist.picture_big, artist.fans)
+      "
       v-if="artists.length"
       class="mb-8 cursor-pointer"
     >

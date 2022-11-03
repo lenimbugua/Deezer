@@ -5,11 +5,14 @@ import { useTopTracksStore } from "@/stores/top-tracks";
 
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 const artistStore = useArtistStore();
 const { search } = artistStore;
 const { error, errorMessage } = storeToRefs(artistStore);
 const { setError } = useUiStore();
+
 const query = ref("");
+const router = useRouter();
 const searchArtist = async (query) => {
   //reset album store
   useTopTracksStore().$reset();
@@ -17,6 +20,7 @@ const searchArtist = async (query) => {
   if (error.value) {
     setError(errorMessage.value);
   }
+  router.push("/");
 };
 </script>
 

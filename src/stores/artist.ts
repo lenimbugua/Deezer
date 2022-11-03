@@ -29,7 +29,7 @@ export interface ArtistState {
 
 const state = () => ({
   artists: useStorage("artists", []),
-  artist: useStorage("artist", null),
+  artist: useStorage("artist", {}),
   loading: false,
   error: false,
   errorMessage: "",
