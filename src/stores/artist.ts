@@ -1,13 +1,12 @@
 import { defineStore } from "pinia";
 import API from "../utilities/API";
+import { useStorage } from "@vueuse/core";
 
 export interface Artist {
   name: string;
   id: string;
   picture: string;
   fans: Number;
-  albums: Number;
-  tracklist: string;
 }
 
 export interface Album {
@@ -21,14 +20,16 @@ export interface TopTracks {
   album: Album;
 }
 export interface ArtistState {
+  artists: Artist[] | null;
   artist: Artist | null;
   loading: Boolean;
   error: Boolean;
   errorMessage: String;
 }
 
-const state = (): ArtistState => ({
-  artist: null,
+const state = () => ({
+  artists: useStorage("artists", []),
+  artist: useStorage("artist", null),
   loading: false,
   error: false,
   errorMessage: "",
@@ -38,36 +39,44 @@ const actions = {
   /* search store will perform artist search and subsequently update
    search state */
   async search(query: string) {
-    const url = `search?q=${query}`;
+    const url = `search/artist?q=${query}`;
     try {
       this.loading = true;
       const response = await API().get(url);
 
-      const { artist } = response.data.data[0];
+      const data = response.data.data;
 
-      const artistURL = `artist/${artist.id}`;
-
-      const { data } = await API().get(artistURL);
+      this.artists = data;
       this.loading = false;
-      const { name, id, tracklist } = data;
 
-      const fans = data.nb_fan;
-      const albums = data.nb_album;
-      const picture = data.picture_big;
+      console.log(data);
 
-      this.artist = {
-        name,
-        id,
-        picture,
-        fans,
-        albums,
-        tracklist,
-      };
+      //   const artistURL = `artist/${artist.id}`;
+
+      //   const { data } = await API().get(artistURL);
+      //   this.loading = false;
+      //   const { name, id, tracklist } = data;
+
+      //   const fans = data.nb_fan;
+      //   const albums = data.nb_album;
+      //   const picture = data.picture_big;
+
+      //   this.artist = {
+      //     name,
+      //     id,
+      //     picture,
+      //     fans,
+      //     albums,
+      //     tracklist,
+      //   };
     } catch (error) {
       this.loading = false;
       this.error = true;
       this.errorMessage = `An Error occurred while sending the request: ${error}`;
     }
+  },
+  setSingleArtist(artist: Artist) {
+    this.artist = artist;
   },
 };
 

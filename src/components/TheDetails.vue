@@ -10,7 +10,7 @@ const topTracksStore = useTopTracksStore();
 const { toptracks, loading } = storeToRefs(topTracksStore);
 </script>
 <template>
-  <!-- =* * * * * * * * * *  The details * * * * * * * * * * *= -->
+  <!-- =* * * * * * * * * *  The details Start * * * * * * * * * * *= -->
   <TheSpin v-if="loading" />
   <main
     v-else
@@ -36,7 +36,7 @@ const { toptracks, loading } = storeToRefs(topTracksStore);
                       <h2
                         class="flex pb-3 items-center font-mono text-sm font-medium leading-7 text-slate-900"
                       >
-                        <img src="@/assets/album.svg" class="h-8 w-8"/>
+                        <img src="@/assets/album.svg" class="h-8 w-8" />
                         <div class="">
                           <div class="lg:max-w-4xl">
                             <div class="mx-auto px-3">

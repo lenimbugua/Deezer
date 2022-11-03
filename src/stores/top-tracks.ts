@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import API from "../utilities/API";
+import { useStorage } from "@vueuse/core";
 
 export interface Album {
   cover: string;
