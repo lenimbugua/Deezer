@@ -2,6 +2,7 @@
 import TheSpin from "@/components/TheSpin.vue";
 import { useArtistStore } from "@/stores/artist";
 import { useTopTracksStore } from "@/stores/top-tracks";
+import { useAlbumStore } from "@/stores/albums";
 import { storeToRefs } from "pinia";
 
 import { useUiStore } from "@/stores/uistore";
@@ -11,6 +12,8 @@ const artistStore = useArtistStore();
 const { artist, loading } = storeToRefs(artistStore);
 const { error, errorMessage } = storeToRefs(useTopTracksStore);
 const topTracksStore = useTopTracksStore();
+const albumStore = useAlbumStore();
+
 const { fetchTop5Tracks } = topTracksStore;
 
 const formatNum = (num) => {
@@ -27,7 +30,7 @@ const formatNum = (num) => {
 };
 
 const fetchTopTracks = async (id) => {
-  useTopTracksStore().$reset();
+  useAlbumStore().$reset();
   await fetchTop5Tracks(id);
   if (error.value) {
     setError(errorMessage.value);

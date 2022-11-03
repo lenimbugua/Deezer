@@ -8,6 +8,7 @@ const topTracksStore = useTopTracksStore();
 const { toptracks, loading } = storeToRefs(topTracksStore);
 </script>
 <template>
+  <!--=* * * * * * * * * * * Albums Start * * * * * * * * * * *=-->
   <TheSpin v-if="loading" />
   <section
     v-if="toptracks.length"
@@ -42,4 +43,5 @@ const { toptracks, loading } = storeToRefs(topTracksStore);
     </div>
   </section>
   <div class="fixed inset-x-0 bottom-0 z-10 lg:left-112 xl:left-120"></div>
+  <!--=* * * * * * * * * * * Albums End * * * * * * * * * * *=-->
 </template>

@@ -1,4 +1,5 @@
 <template>
+  <!--=* * * * * * * * * * *  Loading Spinner Start * * * * * * * * * * *=-->
   <div
     class="fixed flex z-10 top-0 left-0 w-full h-full items-center items-middle bg-white bg-opacity-50 text-center animate__animated animate__fadeIn"
   >
@@ -10,4 +11,5 @@
       </div>
     </div>
   </div>
+  <!--=* * * * * * * * * * *  Loading Spinner Start * * * * * * * * * * *=-->
 </template>
