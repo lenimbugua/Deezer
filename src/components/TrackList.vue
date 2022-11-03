@@ -6,10 +6,11 @@ const topTracksStore = useTopTracksStore();
 const { toptracks } = storeToRefs(topTracksStore);
 
 const formatDuration = (duration) => {
-  duration = duration / 60;
+  duration /= 60;
   return duration.toFixed(2);
 };
 </script>
+
 <template>
   <div v-if="toptracks.length" class="bg-white rounded-md w-5/6 mx-4">
     <div>

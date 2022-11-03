@@ -4,8 +4,9 @@ import { useArtistStore } from "@/stores/artist";
 import { useTopTracksStore } from "@/stores/top-tracks";
 import { useAlbumStore } from "@/stores/albums";
 import { storeToRefs } from "pinia";
-
 import { useUiStore } from "@/stores/uistore";
+import { useRoute } from "vue-router";
+
 const { setError } = useUiStore();
 
 const artistStore = useArtistStore();
@@ -29,13 +30,18 @@ const formatNum = (num) => {
   return num;
 };
 
-const fetchTopTracks = async (id) => {
+const route = useRoute();
+
+const id = route.params.id;
+const fetchTopTracks = async () => {
   useAlbumStore().$reset();
   await fetchTop5Tracks(id);
   if (error.value) {
     setError(errorMessage.value);
   }
 };
+fetchTopTracks();
+
 </script>
 <template>
   <TheSpin v-if="loading" />
