@@ -1,8 +1,6 @@
 import { defineStore } from "pinia";
-import axios from "axios";
+import API from "../utilities/API";
 
-const corsURL = `https://deezer-cors-proxy.herokuapp.com/`;
-const baseURL = `${corsURL}https://api.deezer.com/`;
 export interface Artist {
   name: string;
   id: string;
@@ -36,21 +34,20 @@ const state = (): ArtistState => ({
   errorMessage: "",
 });
 
-const getters = {};
 const actions = {
-  // search store will perform artist search and subsequently update
-  // search state
+  /* search store will perform artist search and subsequently update
+   search state */
   async search(query: string) {
-    const url = `${baseURL}search?q=${query}`;
+    const url = `search?q=${query}`;
     try {
       this.loading = true;
-      const response = await axios.get(url);
+      const response = await API().get(url);
 
       const { artist } = response.data.data[0];
 
-      const artistURL = `${baseURL}/artist/${artist.id}`;
+      const artistURL = `artist/${artist.id}`;
 
-      const { data } = await axios.get(artistURL);
+      const { data } = await API().get(artistURL);
       this.loading = false;
       const { name, id, tracklist } = data;
 
@@ -76,6 +73,5 @@ const actions = {
 
 export const useArtistStore = defineStore("search", {
   state,
-  getters,
   actions,
 });
