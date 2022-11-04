@@ -32,7 +32,7 @@ const setArtist = (name, id, picture, fans, albums) => {
 
   <TheSpin v-if="loading" />
   <section
-    class="block sm:grid sm:grid-cols-3 lg:grid-cols-4 sm:gap-6 px-4 lg:px-20"
+    class="block sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-6 px-4 lg:px-20"
   >
     <div
       v-for="(artist, index) in artists"
