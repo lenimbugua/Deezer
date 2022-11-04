@@ -1,6 +1,7 @@
 <script setup>
 import { useAlbumStore } from "@/stores/albums";
 import { storeToRefs } from "pinia";
+import utils from "@/utilities/utils";
 const albumStore = useAlbumStore();
 const { fetchAlbums } = albumStore;
 const props = defineProps({
@@ -9,12 +10,13 @@ const props = defineProps({
 fetchAlbums(props.id);
 const { album } = storeToRefs(albumStore);
 
+const { getYear } = utils();
 const getReleaseDate = (albumID) => {
   let singleAlbum = album.value.find((album) => {
     return album.id === albumID;
   });
   if (singleAlbum) {
-    return singleAlbum.releaseDate;
+    return getYear(singleAlbum.releaseDate);
   }
 };
 </script>

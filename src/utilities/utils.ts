@@ -11,4 +11,10 @@ export default () => ({
     }
     return num;
   },
+
+  getYear(date: string) {
+    let newDate = new Date(date);
+    const year = newDate.getFullYear();
+    return year;
+  },
 });
