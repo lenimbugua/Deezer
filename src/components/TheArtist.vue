@@ -35,7 +35,7 @@ fetchTopTracks();
 <template>
   <TheSpin v-if="loading" />
   <section
-    @click="fetchTop5Tracks(artist.id)"
+    @click="fetchTopTracks"
     class="cursor-pointer block sm:flex space-x-3 lg:block mt-3"
   >
     <div

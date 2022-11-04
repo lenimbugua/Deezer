@@ -1,6 +1,6 @@
 <template>
   <!-- =* * * * * * * * * * * Start Of the Logo * * * * * * * * * * *= -->
-  <div class="-top-5 md:block mb-6">
+  <router-link to="/" class="-top-5 md:block mb-6 cursor-pointer">
     <div class="lg:max-w-4xl">
       <div class="flex mx-auto md:max-w-2xl">
         <svg
@@ -35,6 +35,6 @@
         </svg>
       </div>
     </div>
-  </div>
+  </router-link>
   <!-- =* * * * * * * * * * * End Of the Logo * * * * * * * * * * *= -->
 </template>

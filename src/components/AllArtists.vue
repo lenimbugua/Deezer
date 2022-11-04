@@ -3,10 +3,8 @@ import MusicSVG from "@/components/MusicSVG.vue";
 import SearchArtists from "@/components/SearchArtists.vue";
 import TheDeezerLogo from "./TheDeezerLogo.vue";
 import TheSpin from "@/components/TheSpin.vue";
-
 import { useArtistStore } from "@/stores/artist";
 import { storeToRefs } from "pinia";
-
 import { useRouter } from "vue-router";
 import utils from "@/utilities/utils";
 
