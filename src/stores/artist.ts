@@ -50,8 +50,6 @@ const actions = {
       this.artists = data;
       this.loading = false;
 
-      console.log(data);
-
     } catch (error) {
       this.loading = false;
       this.error = true;
