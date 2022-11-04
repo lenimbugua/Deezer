@@ -93,7 +93,7 @@ const setArtist = (name, id, picture, fans, albums) => {
           </div>
           <div class="space-x-2 hidden sm:flex">
             <img class="h-5 w-5" src="@/assets/album.svg" />
-            <p class="text-xs text-gray-600">{{ artist.nb_album }}Albums</p>
+            <p class="text-xs text-gray-600">{{ artist.nb_album }} Albums</p>
           </div>
         </section>
       </div>
