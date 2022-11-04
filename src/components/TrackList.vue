@@ -2,6 +2,7 @@
 import { useTopTracksStore } from "@/stores/top-tracks";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
+import ListenAudio from "./ListenAudio.vue";
 const topTracksStore = useTopTracksStore();
 const { toptracks } = storeToRefs(topTracksStore);
 
@@ -77,4 +78,5 @@ const formatDuration = (duration) => {
       </div>
     </div>
   </div>
+  <ListenAudio />
 </template>
