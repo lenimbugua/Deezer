@@ -2,7 +2,7 @@
 import { useTopTracksStore } from "@/stores/top-tracks";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
-import ListenAudio from "./ListenAudio.vue";
+import ListenAudio from "./music/ListenAudio.vue";
 const topTracksStore = useTopTracksStore();
 const { toptracks } = storeToRefs(topTracksStore);
 
