@@ -52,24 +52,6 @@ const actions = {
 
       console.log(data);
 
-      //   const artistURL = `artist/${artist.id}`;
-
-      //   const { data } = await API().get(artistURL);
-      //   this.loading = false;
-      //   const { name, id, tracklist } = data;
-
-      //   const fans = data.nb_fan;
-      //   const albums = data.nb_album;
-      //   const picture = data.picture_big;
-
-      //   this.artist = {
-      //     name,
-      //     id,
-      //     picture,
-      //     fans,
-      //     albums,
-      //     tracklist,
-      //   };
     } catch (error) {
       this.loading = false;
       this.error = true;
