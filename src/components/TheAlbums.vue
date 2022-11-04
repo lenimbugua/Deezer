@@ -15,6 +15,7 @@ const { toptracks, loading } = storeToRefs(useTopTracksStore());
   >
     <div class="mx-auto">
       <section class="lg:ml-120 grid grid-cols-3 sm:grid-cols-5 gap-3 px-4">
+        <div v-if="!toptracks.length">No tracks found</div>
         <div
           v-for="track in toptracks"
           :key="track.title"
@@ -36,7 +37,7 @@ const { toptracks, loading } = storeToRefs(useTopTracksStore());
           <span class="mt-3 block font-semibold text-slate-700">
             {{ track.album.title }}
           </span>
-          <ReleaseDate v-if="toptracks" :id="track.album.id" />
+          <ReleaseDate v-if="toptracks.length" :id="track.album.id" />
         </div>
       </section>
     </div>
