@@ -1,14 +1,15 @@
 <script setup>
-import SearchArtists from "@/components/SearchArtists.vue";
-import MusicSVG from "./MusicSVG.vue";
-import TrackList from "./TrackList.vue";
-import TheSpin from "./TheSpin.vue";
+import { storeToRefs } from 'pinia'
+import MusicSVG from './MusicSVG.vue'
+import TrackList from './TrackList.vue'
+import TheSpin from './TheSpin.vue'
+import SearchArtists from '@/components/SearchArtists.vue'
 
-import { useTopTracksStore } from "@/stores/top-tracks";
-import { storeToRefs } from "pinia";
-const topTracksStore = useTopTracksStore();
-const { toptracks, loading } = storeToRefs(topTracksStore);
+import { useTopTracksStore } from '@/stores/top-tracks'
+const topTracksStore = useTopTracksStore()
+const { toptracks, loading } = storeToRefs(topTracksStore)
 </script>
+
 <template>
   <!-- =* * * * * * * * * *  The details Start * * * * * * * * * * *= -->
   <TheSpin v-if="loading" />
@@ -32,7 +33,7 @@ const { toptracks, loading } = storeToRefs(topTracksStore);
                     <!-- =* * * * * * * * * *  Start Of the tracklist table * * * * * * * * * * *= -->
                     <TrackList />
                     <!-- =* * * * * * * * * *  End Of the tracklist table * * * * * * * * * * *= -->
-                    <div class="mt-4 flex items-center" v-if="toptracks.length">
+                    <div v-if="toptracks.length" class="mt-4 flex items-center">
                       <div
                         class="flex pb-3 items-center font-mono text-sm font-medium leading-7 text-slate-900"
                       >
@@ -50,7 +51,6 @@ const { toptracks, loading } = storeToRefs(topTracksStore);
                         </div>
                       </div>
                     </div>
-                    
                   </div>
                 </div>
               </div>

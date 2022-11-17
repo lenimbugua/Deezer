@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { useMediaControls } from "@vueuse/core";
-import AudioPaused from "./AudioPaused.vue";
-import AudioPlaying from "./AudioPlaying.vue";
+import AudioPausedSVG from "./AudioPausedSVG.vue";
+import AudioPlayingSVG from "./AudioPlayingSVG.vue";
+import { useTrackStore } from "../../stores/track";
+import { storeToRefs } from "pinia";
+
+const { track } = storeToRefs(useTrackStore());
 
 const audio = ref();
 const { playing, currentTime, duration, volume } = useMediaControls(audio, {
-  src: "https://their-side-feed.vercel.app/episode-004.mp3",
+  src: track.value ? track.value.source : "",
 });
 
 // Change initial media properties
@@ -45,7 +49,7 @@ onMounted(() => {
           class="truncate text-center text-sm font-bold leading-6 md:text-left"
           title="4: Shooter McGavin"
           href="/4"
-          >4: Shooter McGavin</a
+          >{{ track.title }}</a
         >
         <div class="flex justify-between gap-6">
           <div class="flex items-center md:hidden">
@@ -110,8 +114,8 @@ onMounted(() => {
                 aria-label="Play"
               >
                 <div class="absolute -inset-3 md:hidden"></div>
-                <AudioPlaying v-if="playing" />
-                <AudioPaused v-else />
+                <AudioPlayingSVG v-if="playing" />
+                <AudioPausedSVG v-else />
               </button>
             </div>
             <button

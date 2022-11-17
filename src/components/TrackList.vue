@@ -3,20 +3,31 @@ import { useTopTracksStore } from "@/stores/top-tracks";
 import { useTrackStore } from "@/stores/track";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
-import ListenAudio from "./music/ListenAudio.vue";
+import PlayMusic from "./play/PlayMusic.vue";
 const topTracksStore = useTopTracksStore();
 const { toptracks } = storeToRefs(topTracksStore);
 
-const { setTrack } = useTrackStore();
+const { setTrack, unsetTrack } = useTrackStore();
+const { track } = storeToRefs(useTrackStore());
 
 const formatDuration = (duration) => {
   duration /= 60;
   return duration.toFixed(2);
 };
+const playTrack = (title, source, duration) => {
+  if (track.value) {
+    unsetTrack();
+  } else {
+    setTrack({ title, source, duration });
+  }
+};
 </script>
 
 <template>
-  <div v-if="toptracks.length" class="bg-white rounded-md w-5/6 mx-4">
+  <div
+    v-if="toptracks.length"
+    class="bg-white rounded-md mx-0 sm:w-5/6 sm:mx-4"
+  >
     <div>
       <div class="-mx-4 sm:-mx-8 py-4 overflow-x-auto">
         <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
@@ -86,6 +97,9 @@ const formatDuration = (duration) => {
                 </td>
                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                   <button
+                    @click="
+                      playTrack(track.title, track.source, track.duration)
+                    "
                     type="button"
                     class="flex items-center text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900"
                     aria-label="Play episode 5: Bill Lumbergh"
@@ -109,5 +123,5 @@ const formatDuration = (duration) => {
       </div>
     </div>
   </div>
-  <ListenAudio />
+  <PlayMusic v-if="track" />
 </template>

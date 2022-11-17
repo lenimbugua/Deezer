@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export interface Track {
   title: string;
   source: string;
+  duration: number;
 }
 
 export interface TrackState {
@@ -15,7 +16,12 @@ const state = (): TrackState => ({
 
 const actions = {
   setTrack(track: Track) {
+    //unset first
+    this.unsetTrack();
     this.track = track;
+  },
+  unsetTrack(track: Track) {
+    this.track = null;
   },
 };
 

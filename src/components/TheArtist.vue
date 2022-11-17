@@ -1,42 +1,41 @@
 <script setup>
-import TheSpin from "@/components/TheSpin.vue";
-import { useArtistStore } from "@/stores/artist";
-import { useTopTracksStore } from "@/stores/top-tracks";
-import { useAlbumStore } from "@/stores/albums";
-import { storeToRefs } from "pinia";
-import { useUiStore } from "@/stores/uistore";
-import { useRoute } from "vue-router";
-import utils from "@/utilities/utils";
-const { formatNum } = utils();
-const { setError } = useUiStore();
+import { storeToRefs } from 'pinia'
+import { useRoute } from 'vue-router'
+import TheSpin from '@/components/TheSpin.vue'
+import { useArtistStore } from '@/stores/artist'
+import { useTopTracksStore } from '@/stores/top-tracks'
+import { useAlbumStore } from '@/stores/albums'
+import { useUiStore } from '@/stores/uistore'
+import utils from '@/utilities/utils'
+const { formatNum } = utils()
+const { setError } = useUiStore()
 
-const artistStore = useArtistStore();
-const { artist, loading } = storeToRefs(artistStore);
-const { error, errorMessage } = storeToRefs(useTopTracksStore());
-const topTracksStore = useTopTracksStore();
-const albumStore = useAlbumStore();
+const artistStore = useArtistStore()
+const { artist, loading } = storeToRefs(artistStore)
+const { error, errorMessage } = storeToRefs(useTopTracksStore())
+const topTracksStore = useTopTracksStore()
+const albumStore = useAlbumStore()
 
-const { fetchTop5Tracks } = topTracksStore;
+const { fetchTop5Tracks } = topTracksStore
 
-const route = useRoute();
+const route = useRoute()
 
-const id = route.params.id;
+const id = route.params.id
 const fetchTopTracks = async () => {
-  useAlbumStore().$reset();
-  useTopTracksStore().$reset();
-  const limit = 5;
-  await fetchTop5Tracks(id, limit);
-  if (error.value) {
-    setError(errorMessage.value);
-  }
-};
-fetchTopTracks();
+  useAlbumStore().$reset()
+  useTopTracksStore().$reset()
+  const limit = 5
+  await fetchTop5Tracks(id, limit)
+  if (error.value) setError(errorMessage.value)
+}
+fetchTopTracks()
 </script>
+
 <template>
   <TheSpin v-if="loading" />
   <section
-    @click="fetchTopTracks"
     class="cursor-pointer block sm:flex space-x-3 lg:block mt-3"
+    @click="fetchTopTracks"
   >
     <div
       v-if="artist != null"
@@ -53,7 +52,7 @@ fetchTopTracks();
       />
       <div
         class="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10 sm:rounded-xl lg:rounded-2xl"
-      ></div>
+      />
     </div>
     <section v-if="artist != null" class="mt-2 sm:mt-0 lg:mt-0">
       <div v-if="artist != null" class="mt-3 lg:text-left">
