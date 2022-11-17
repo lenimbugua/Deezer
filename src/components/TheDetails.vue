@@ -1,14 +1,15 @@
 <script setup>
-import SearchArtists from "@/components/SearchArtists.vue";
-import MusicSVG from "./MusicSVG.vue";
-import TrackList from "./TrackList.vue";
-import TheSpin from "./TheSpin.vue";
+import { storeToRefs } from 'pinia'
+import MusicSVG from './MusicSVG.vue'
+import TrackList from './TrackList.vue'
+import TheSpin from './TheSpin.vue'
+import SearchArtists from '@/components/SearchArtists.vue'
 
-import { useTopTracksStore } from "@/stores/top-tracks";
-import { storeToRefs } from "pinia";
-const topTracksStore = useTopTracksStore();
-const { toptracks, loading } = storeToRefs(topTracksStore);
+import { useTopTracksStore } from '@/stores/top-tracks'
+const topTracksStore = useTopTracksStore()
+const { toptracks, loading } = storeToRefs(topTracksStore)
 </script>
+
 <template>
   <!-- =* * * * * * * * * *  The details Start * * * * * * * * * * *= -->
   <TheSpin v-if="loading" />
@@ -32,25 +33,24 @@ const { toptracks, loading } = storeToRefs(topTracksStore);
                     <!-- =* * * * * * * * * *  Start Of the tracklist table * * * * * * * * * * *= -->
                     <TrackList />
                     <!-- =* * * * * * * * * *  End Of the tracklist table * * * * * * * * * * *= -->
-                    <div class="mt-4 flex items-center" v-if="toptracks.length">
-                      <h2
+                    <div v-if="toptracks.length" class="mt-4 flex items-center">
+                      <div
                         class="flex pb-3 items-center font-mono text-sm font-medium leading-7 text-slate-900"
                       >
                         <img src="@/assets/album.svg" class="h-8 w-8" />
                         <div class="">
                           <div class="lg:max-w-4xl">
                             <div class="mx-auto px-3">
-                              <h1
+                              <h3
                                 class="text-2xl font-bold leading-5 text-slate-900"
                               >
                                 Albums
-                              </h1>
+                              </h3>
                             </div>
                           </div>
                         </div>
-                      </h2>
+                      </div>
                     </div>
-                    
                   </div>
                 </div>
               </div>

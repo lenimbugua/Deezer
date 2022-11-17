@@ -1,16 +1,16 @@
 <script setup>
-import TheDetails from "@/components/TheDetails.vue";
-import TheBreadcrump from "@/components/TheBreadcrump.vue";
-import TheArtist from "@/components/TheArtist.vue";
-import SearchArtists from "@/components/SearchArtists.vue";
-import TheAlbums from "@/components/TheAlbums.vue";
-import TheToast from "@/components/TheToast.vue";
-import TheDeezerLogo from "@/components/TheDeezerLogo.vue";
-import MusicSVG from "@/components/MusicSVG.vue";
-import { useUiStore } from "@/stores/uistore";
-import { storeToRefs } from "pinia";
+import { storeToRefs } from 'pinia'
+import TheDetails from '@/components/TheDetails.vue'
+import TheBreadcrump from '@/components/TheBreadcrump.vue'
+import TheArtist from '@/components/TheArtist.vue'
+import SearchArtists from '@/components/SearchArtists.vue'
+import TheAlbums from '@/components/TheAlbums.vue'
+import TheToast from '@/components/TheToast.vue'
+import TheDeezerLogo from '@/components/TheDeezerLogo.vue'
+import MusicSVG from '@/components/MusicSVG.vue'
+import { useUiStore } from '@/stores/uistore'
 
-const { toast } = storeToRefs(useUiStore());
+const { toast } = storeToRefs(useUiStore())
 </script>
 
 <template>
@@ -47,7 +47,7 @@ const { toast } = storeToRefs(useUiStore());
   <!-- = * * * * * * * * *  Start Of the Toast* * * * * * * * * * = -->
 
   <div v-if="toast != null">
-    <Transition name="toast" v-show="toast.hasError">
+    <Transition v-show="toast.hasError" name="toast">
       <TheToast>{{ toast.message }}</TheToast>
     </Transition>
   </div>

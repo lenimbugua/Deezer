@@ -1,39 +1,39 @@
-import { setActivePinia, createPinia } from "pinia";
+import { createPinia, setActivePinia } from 'pinia'
 import {
   afterEach,
   beforeAll,
   beforeEach,
   describe,
-  test,
   expect,
-} from "vitest";
+  test,
+} from 'vitest'
 
-import { useArtistStore } from "./artist";
+import { useArtistStore } from './artist'
 
 beforeAll(() => {
-  setActivePinia(createPinia());
-});
+  setActivePinia(createPinia())
+})
 
-describe("useArtistStore", () => {
-  let store: ReturnType<typeof useArtistStore>;
+describe('useArtistStore', () => {
+  let store: ReturnType<typeof useArtistStore>
 
   /* beforEach ensures a completely new store is created before each test is run
   to avoid coupling of stores */
   beforeEach(() => {
-    store = useArtistStore();
-  });
+    store = useArtistStore()
+  })
 
   /* afterEach will reinitialize store to an empty state
   so that every test we run has a fresh store */
   afterEach(() => {
-    store.$reset();
-  });
+    store.$reset()
+  })
 
-  test("creates a store", () => {
-    expect(store).toBeDefined();
-  });
+  test('creates a store', () => {
+    expect(store).toBeDefined()
+  })
 
-  test("searches an artist", () => {
-    expect(store.search('')).toBeDefined();
-  });
-});
+  test('searches an artist', () => {
+    expect(store.search('')).toBeDefined()
+  })
+})
